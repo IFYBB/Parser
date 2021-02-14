@@ -13,7 +13,7 @@ HEADERS = {
 }
 
 def get_html(url, params=''):
-    r = requests.get(url, headers=HEADERS, params=params) # r = request.get(url, headers=HEADERS, params=params) #
+    r = requests.get(url, headers=HEADERS, params=params)
     return r
 
 def get_content(html):
@@ -38,7 +38,7 @@ def save_csv(items, path):
         for item in items:
             writer.writerow((item['title'], item['adress'], item['price'], item['link']))
 
-def make_money(roomss): # ф-я вытаскивае тчсило - цену из текста.
+def make_money(roomss): # ф-я вытаскивает число - цену из текста.
     for room in roomss:
         item = room['price']  # Получаем нужную строку
         value = ''.join(re.findall(r'\d+', item))  # Достаём из неё все цифры и объединяем через пустую строку
